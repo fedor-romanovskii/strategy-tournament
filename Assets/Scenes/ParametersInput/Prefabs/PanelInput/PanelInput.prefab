@@ -118,13 +118,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494041074591598}
   m_TextComponent: {fileID: 7839494042045946736}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -261,13 +261,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494041078717571}
   m_TextComponent: {fileID: 7839494041103468928}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -453,6 +453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494041182168353}
   - component: {fileID: 7839494041182168358}
+  - component: {fileID: 2266776304395221939}
   m_Layer: 5
   m_Name: PanelOptionUpgradePrice
   m_TagString: Untagged
@@ -489,6 +490,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494041182168352}
   m_CullTransparentMesh: 0
+--- !u!114 &2266776304395221939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494041182168352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 5
+  optionValue: 20
 --- !u!1 &7839494041284851586
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494041284851587}
   - component: {fileID: 7839494041284851584}
+  - component: {fileID: 650787252641522332}
   m_Layer: 5
   m_Name: PanelOptionUnitPrice
   m_TagString: Untagged
@@ -535,6 +551,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494041284851586}
   m_CullTransparentMesh: 0
+--- !u!114 &650787252641522332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494041284851586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 4
+  optionValue: 15
 --- !u!1 &7839494041490622392
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494041490622393}
   - component: {fileID: 7839494041490622398}
+  - component: {fileID: 5466718633888886359}
   m_Layer: 5
   m_Name: PanelOptionBaseDamage
   m_TagString: Untagged
@@ -581,6 +612,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494041490622392}
   m_CullTransparentMesh: 0
+--- !u!114 &5466718633888886359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494041490622392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 1
+  optionValue: 1
 --- !u!1 &7839494041691807402
 GameObject:
   m_ObjectHideFlags: 0
@@ -986,6 +1031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494041915388920}
   - component: {fileID: 7839494041915388921}
+  - component: {fileID: 5232178601642736300}
   m_Layer: 5
   m_Name: PanelOptionBaseHP
   m_TagString: Untagged
@@ -1022,6 +1068,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494041915388923}
   m_CullTransparentMesh: 0
+--- !u!114 &5232178601642736300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494041915388923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 0
+  optionValue: 50
 --- !u!1 &7839494041947782348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,13 +1516,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494042060229080}
   m_TextComponent: {fileID: 7839494042014258837}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1491,6 +1551,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494042074483062}
   - component: {fileID: 7839494042074483063}
+  - component: {fileID: 3567677004190311419}
   m_Layer: 5
   m_Name: PanelOptionMoveSpeed
   m_TagString: Untagged
@@ -1527,6 +1588,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494042074483057}
   m_CullTransparentMesh: 0
+--- !u!114 &3567677004190311419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494042074483057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 6
+  optionValue: 1
 --- !u!1 &7839494042175007148
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,13 +1720,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494042175007155}
   m_TextComponent: {fileID: 7839494041947782354}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -1759,6 +1834,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494042246387204}
   - component: {fileID: 7839494042246387205}
+  - component: {fileID: 1744748241510910776}
   m_Layer: 5
   m_Name: PanelOptionGoldSpeed
   m_TagString: Untagged
@@ -1795,6 +1871,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494042246387207}
   m_CullTransparentMesh: 0
+--- !u!114 &1744748241510910776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494042246387207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 2
+  optionValue: 5
 --- !u!1 &7839494042357246541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,13 +2003,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494042357246544}
   m_TextComponent: {fileID: 7839494042709390991}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -2135,13 +2225,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494042512600389}
   m_TextComponent: {fileID: 7839494041719919838}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -2170,6 +2260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494042589418861}
   - component: {fileID: 7839494042589418866}
+  - component: {fileID: 755553662483911826}
   m_Layer: 5
   m_Name: PanelOptionDetectionRange
   m_TagString: Untagged
@@ -2206,6 +2297,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494042589418860}
   m_CullTransparentMesh: 0
+--- !u!114 &755553662483911826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494042589418860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 7
+  optionValue: 1
 --- !u!1 &7839494042694995991
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,6 +2321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839494042694995988}
   - component: {fileID: 7839494042694995989}
+  - component: {fileID: 3690935819954569396}
   m_Layer: 5
   m_Name: PanelOptionLumberSpeed
   m_TagString: Untagged
@@ -2252,6 +2358,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7839494042694995991}
   m_CullTransparentMesh: 0
+--- !u!114 &3690935819954569396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7839494042694995991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48645d29f35b2034289e15481dfdb63f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  optionType: 3
+  optionValue: 1
 --- !u!1 &7839494042709390985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,13 +2727,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494042844742215}
   m_TextComponent: {fileID: 7839494041877008159}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
@@ -2721,14 +2841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a4af3f163ee304d932ddd6a636e627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputBaseHP: {fileID: 7839494042512600388}
-  inputBaseDamage: {fileID: 7839494041078717570}
-  inputGoldSpeed: {fileID: 7839494042175007154}
-  inputLumberSpeed: {fileID: 7839494042060229083}
-  inputUnitPrice: {fileID: 7839494043114712338}
-  inputUpgradePrice: {fileID: 7839494041074591593}
-  inputMoveSpeed: {fileID: 7839494042844742214}
-  inputDetectionRange: {fileID: 7839494042357246547}
 --- !u!1 &7839494043047993237
 GameObject:
   m_ObjectHideFlags: 0
@@ -2926,13 +3038,13 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7839494043114712339}
   m_TextComponent: {fileID: 7839494042495818032}
   m_Placeholder: {fileID: 0}
-  m_ContentType: 0
+  m_ContentType: 3
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 2
   m_LineType: 0
   m_HideMobileInput: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:

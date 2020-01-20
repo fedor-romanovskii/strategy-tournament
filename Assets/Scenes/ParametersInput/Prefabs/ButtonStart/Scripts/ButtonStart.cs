@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -22,32 +20,24 @@ public class ButtonStart : MonoBehaviour
 
     private void OnButtonStartClick()
     {
-        SetPlayerParameters();
-        SetEnemyParameters();
+        var parametersContainer = new GameObject();
+        parametersContainer.name = "ParametersContainer";
+        DontDestroyOnLoad(parametersContainer);
+
+        var type = Type.GetType("Parameters");
+
+        var player = new GameObject();
+        player.name = "PlayerParameters";
+        player.transform.SetParent(parametersContainer.transform);
+        var playerParameters = player.AddComponent<Parameters>();
+        playerParameters.SetParameters(playerInputPanel.GetOptions());
+
+        var enemy = new GameObject();
+        enemy.name = "EnemyParameters";
+        enemy.transform.SetParent(parametersContainer.transform);
+        var enemyParameters = enemy.AddComponent<Parameters>();
+        enemyParameters.SetParameters(enemyInputPanel.GetOptions());
+
         SceneManager.LoadScene(1);
-    }
-
-    private void SetEnemyParameters()
-    {
-        EnemyParameters.baseHP = enemyInputPanel.baseHP;
-        EnemyParameters.baseDamage = enemyInputPanel.baseDamage;
-        EnemyParameters.goldSpeed = enemyInputPanel.goldSpeed;
-        EnemyParameters.lumberSpeed = enemyInputPanel.lumberSpeed;
-        EnemyParameters.unitPrice = enemyInputPanel.unitPrice;
-        EnemyParameters.upgradePrice = enemyInputPanel.upgradePrice;
-        EnemyParameters.moveSpeed = enemyInputPanel.moveSpeed;
-        EnemyParameters.detectionRange = enemyInputPanel.detectionRange;
-    }
-
-    private void SetPlayerParameters()
-    {
-        PlayerParameters.baseHP = playerInputPanel.baseHP;
-        PlayerParameters.baseDamage = playerInputPanel.baseDamage;
-        PlayerParameters.goldSpeed = playerInputPanel.goldSpeed;
-        PlayerParameters.lumberSpeed = playerInputPanel.lumberSpeed;
-        PlayerParameters.unitPrice = playerInputPanel.unitPrice;
-        PlayerParameters.upgradePrice = playerInputPanel.upgradePrice;
-        PlayerParameters.moveSpeed = playerInputPanel.moveSpeed;
-        PlayerParameters.detectionRange = playerInputPanel.detectionRange;
     }
 }
