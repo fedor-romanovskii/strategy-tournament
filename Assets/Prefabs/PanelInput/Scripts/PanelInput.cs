@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class PanelInput : MonoBehaviour
 {
-    [SerializeField] private int baseHP = 100;
-    [SerializeField] private int baseDamage = 1;
-    [SerializeField] private float goldSpeed = 5f;
-    [SerializeField] private float lumberSpeed = 1f;
-    [SerializeField] private int unitPrice = 10;
-    [SerializeField] private int upgradePrice = 15;
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float detectionRange = 1f;
+    public int baseHP { get; private set; } = 100;
+    public int baseDamage { get; private set; } = 1;
+    public float goldSpeed { get; private set; } = 5f;
+    public float lumberSpeed { get; private set; } = 1f;
+    public int unitPrice { get; private set; } = 10;
+    public int upgradePrice { get; private set; } = 15;
+    public float moveSpeed { get; private set; } = 1f;
+    public float detectionRange { get; private set; } = 1f;
 
     [SerializeField] private InputField inputBaseHP = null;
     [SerializeField] private InputField inputBaseDamage = null;
