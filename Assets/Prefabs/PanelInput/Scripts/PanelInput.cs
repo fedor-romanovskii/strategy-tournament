@@ -25,16 +25,29 @@ public class PanelInput : MonoBehaviour
 
     private void OnEnable()
     {
-        inputBaseHP.text = baseHP.ToString();
-        inputBaseDamage.text = baseDamage.ToString();
-        inputGoldSpeed.text = goldSpeed.ToString();
-        inputLumberSpeed.text = lumberSpeed.ToString();
-        inputUnitPrice.text = unitPrice.ToString();
-        inputUpgradePrice.text = upgradePrice.ToString();
-        inputMoveSpeed.text = moveSpeed.ToString();
-        inputDetectionRange.text = detectionRange.ToString();
+        SetDefaultValues();
+        AddInputListeners();
+    }
 
+    private void OnDisable()
+    {
+        RemoveInputListeners();
+    }
 
+    private void RemoveInputListeners()
+    {
+        inputBaseHP.onEndEdit.RemoveAllListeners();
+        inputBaseDamage.onEndEdit.RemoveAllListeners();
+        inputGoldSpeed.onEndEdit.RemoveAllListeners();
+        inputLumberSpeed.onEndEdit.RemoveAllListeners();
+        inputUnitPrice.onEndEdit.RemoveAllListeners();
+        inputUpgradePrice.onEndEdit.RemoveAllListeners();
+        inputMoveSpeed.onEndEdit.RemoveAllListeners();
+        inputDetectionRange.onEndEdit.RemoveAllListeners();
+    }
+
+    private void AddInputListeners()
+    {
         inputBaseHP.onEndEdit.AddListener((value) => baseHP = int.Parse(value));
         inputBaseDamage.onEndEdit.AddListener((value) => baseDamage = int.Parse(value));
         inputGoldSpeed.onEndEdit.AddListener((value) => goldSpeed = float.Parse(value));
@@ -43,5 +56,17 @@ public class PanelInput : MonoBehaviour
         inputUpgradePrice.onEndEdit.AddListener((value) => upgradePrice = int.Parse(value));
         inputMoveSpeed.onEndEdit.AddListener((value) => moveSpeed = float.Parse(value));
         inputDetectionRange.onEndEdit.AddListener((value) => detectionRange = float.Parse(value));
+    }
+
+    private void SetDefaultValues()
+    {
+        inputBaseHP.text = baseHP.ToString();
+        inputBaseDamage.text = baseDamage.ToString();
+        inputGoldSpeed.text = goldSpeed.ToString();
+        inputLumberSpeed.text = lumberSpeed.ToString();
+        inputUnitPrice.text = unitPrice.ToString();
+        inputUpgradePrice.text = upgradePrice.ToString();
+        inputMoveSpeed.text = moveSpeed.ToString();
+        inputDetectionRange.text = detectionRange.ToString();
     }
 }

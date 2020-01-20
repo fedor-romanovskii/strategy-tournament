@@ -22,15 +22,13 @@ public class ButtonStart : MonoBehaviour
 
     private void OnButtonStartClick()
     {
-        PlayerParameters.baseHP = playerInputPanel.baseHP;
-        PlayerParameters.baseDamage = playerInputPanel.baseDamage;
-        PlayerParameters.goldSpeed = playerInputPanel.goldSpeed;
-        PlayerParameters.lumberSpeed = playerInputPanel.lumberSpeed;
-        PlayerParameters.unitPrice = playerInputPanel.unitPrice;
-        PlayerParameters.upgradePrice = playerInputPanel.upgradePrice;
-        PlayerParameters.moveSpeed = playerInputPanel.moveSpeed;
-        PlayerParameters.detectionRange = playerInputPanel.detectionRange;
+        SetPlayerParameters();
+        SetEnemyParameters();
+        SceneManager.LoadScene(1);
+    }
 
+    private void SetEnemyParameters()
+    {
         EnemyParameters.baseHP = enemyInputPanel.baseHP;
         EnemyParameters.baseDamage = enemyInputPanel.baseDamage;
         EnemyParameters.goldSpeed = enemyInputPanel.goldSpeed;
@@ -39,8 +37,17 @@ public class ButtonStart : MonoBehaviour
         EnemyParameters.upgradePrice = enemyInputPanel.upgradePrice;
         EnemyParameters.moveSpeed = enemyInputPanel.moveSpeed;
         EnemyParameters.detectionRange = enemyInputPanel.detectionRange;
+    }
 
-        SceneManager.LoadScene(1);
-
+    private void SetPlayerParameters()
+    {
+        PlayerParameters.baseHP = playerInputPanel.baseHP;
+        PlayerParameters.baseDamage = playerInputPanel.baseDamage;
+        PlayerParameters.goldSpeed = playerInputPanel.goldSpeed;
+        PlayerParameters.lumberSpeed = playerInputPanel.lumberSpeed;
+        PlayerParameters.unitPrice = playerInputPanel.unitPrice;
+        PlayerParameters.upgradePrice = playerInputPanel.upgradePrice;
+        PlayerParameters.moveSpeed = playerInputPanel.moveSpeed;
+        PlayerParameters.detectionRange = playerInputPanel.detectionRange;
     }
 }
