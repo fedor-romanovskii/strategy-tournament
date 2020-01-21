@@ -279,6 +279,9 @@ GameObject:
   m_Component:
   - component: {fileID: 804530779}
   - component: {fileID: 804530778}
+  - component: {fileID: 804530780}
+  - component: {fileID: 804530781}
+  - component: {fileID: 804530782}
   m_Layer: 0
   m_Name: BaseBlue
   m_TagString: Untagged
@@ -322,7 +325,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 05b169e29a416194caa7a47d8dc98c6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -348,6 +351,51 @@ Transform:
   m_Father: {fileID: 1203845046}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804530780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804530777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358b40294ba68b84fbf154ef24a93d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &804530781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804530777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c42774b6f995c49addd6eadadeab19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHP: 100
+  baseDamage: 1
+  goldSpeed: 5
+  lumberSpeed: 1
+  unitPrice: 10
+  upgradePrice: 15
+  moveSpeed: 1
+  detectionRange: 1
+--- !u!114 &804530782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804530777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933ba58892628454f93581d574cdbeed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSide: 0
 --- !u!224 &880306978 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2289029437796462098, guid: 8fce8763f21e6974f85af301d91bf032,
@@ -397,6 +445,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1300777541}
   - component: {fileID: 1300777540}
+  - component: {fileID: 1300777542}
+  - component: {fileID: 1300777543}
+  - component: {fileID: 1300777544}
   m_Layer: 0
   m_Name: BaseRed
   m_TagString: Untagged
@@ -440,7 +491,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 5b75bc0b494adec44b49bb8e5e9ecac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -466,6 +517,51 @@ Transform:
   m_Father: {fileID: 1203845046}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1300777542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300777539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 358b40294ba68b84fbf154ef24a93d35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1300777543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300777539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06c42774b6f995c49addd6eadadeab19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseHP: 100
+  baseDamage: 1
+  goldSpeed: 5
+  lumberSpeed: 1
+  unitPrice: 10
+  upgradePrice: 15
+  moveSpeed: 1
+  detectionRange: 1
+--- !u!114 &1300777544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300777539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933ba58892628454f93581d574cdbeed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSide: 1
 --- !u!1 &1565991381
 GameObject:
   m_ObjectHideFlags: 0

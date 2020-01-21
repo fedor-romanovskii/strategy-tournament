@@ -23,4 +23,16 @@ public class Parameters : MonoBehaviour
         moveSpeed = float.Parse(parameters[PanelOption.OptionType.moveSpeed]);
         detectionRange = float.Parse(parameters[PanelOption.OptionType.detectionRange]);
     }
+
+    public void CopyParameters(Parameters parameters)
+    {
+        baseHP = parameters.baseHP;
+        baseDamage = parameters.baseDamage;
+        goldSpeed = parameters.goldSpeed;
+        lumberSpeed = parameters.lumberSpeed;
+        unitPrice = parameters.unitPrice;
+        upgradePrice = parameters.upgradePrice;
+        moveSpeed = parameters.moveSpeed;
+        detectionRange = parameters.detectionRange;
+    }
 }
