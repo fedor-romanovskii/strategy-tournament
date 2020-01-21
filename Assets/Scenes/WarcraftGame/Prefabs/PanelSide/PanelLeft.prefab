@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 563281334048809835}
   - component: {fileID: 563281334048809833}
   - component: {fileID: 563281334048809834}
+  - component: {fileID: 154049834365660702}
   m_Layer: 5
   m_Name: PanelLeft
   m_TagString: Untagged
@@ -227,6 +228,24 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &154049834365660702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563281334048809844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f774f204672cd4cbe6c1101ae7e1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: {fileID: 563281334072771518}
+  lumber: {fileID: 563281335607009008}
+  unitLimit: {fileID: 563281335547082634}
+  stage: {fileID: 563281335440970301}
+  gpm: {fileID: 563281334993239747}
+  lpm: {fileID: 563281334638074933}
 --- !u!1 &563281334072771512
 GameObject:
   m_ObjectHideFlags: 0

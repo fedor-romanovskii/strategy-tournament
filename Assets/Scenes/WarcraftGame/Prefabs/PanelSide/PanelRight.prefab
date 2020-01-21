@@ -940,6 +940,7 @@ GameObject:
   - component: {fileID: 2289029437796462098}
   - component: {fileID: 2289029437796462100}
   - component: {fileID: 2289029437796462099}
+  - component: {fileID: 6131016124975310651}
   m_Layer: 5
   m_Name: PanelRight
   m_TagString: Untagged
@@ -1005,6 +1006,24 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
+--- !u!114 &6131016124975310651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2289029437796462097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f774f204672cd4cbe6c1101ae7e1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: {fileID: 2289029437170604439}
+  lumber: {fileID: 2289029436576291659}
+  unitLimit: {fileID: 2289029436381113846}
+  stage: {fileID: 2289029438330556924}
+  gpm: {fileID: 2289029436348471319}
+  lpm: {fileID: 2289029436715333418}
 --- !u!1 &2289029437847806168
 GameObject:
   m_ObjectHideFlags: 0

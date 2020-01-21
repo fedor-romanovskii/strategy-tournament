@@ -19,7 +19,9 @@ public class ResourcesCollector : MonoBehaviour
         if (time >= 1f / collectPerSecond)
         {
             time = 0f;
-            onResourceCollect();
+            onResourceCollect?.Invoke();
         }
     }
+
+    public virtual void UpdateCollectPerSecond(float value) => collectPerSecond = value;
 }

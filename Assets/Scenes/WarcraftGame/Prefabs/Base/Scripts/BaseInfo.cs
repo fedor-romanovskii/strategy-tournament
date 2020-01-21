@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BaseInfo : MonoBehaviour
 {
+    [SerializeField] private PanelSideValues panelSideValues = null;
+
+    public PanelSideValues GetPanelSideValues() => panelSideValues;
+
     public int Stage { get; private set; }
-    public int Hp { get; private set; }
 
     public void UpgradeStage()
     {
         Stage++;
+        panelSideValues.UpdateStage((Stage + 1).ToString());
     }
 
     public enum BaseSide
@@ -22,16 +24,22 @@ public class BaseInfo : MonoBehaviour
 
     private void OnEnable()
     {
+        Parameters parameters = GetComponent<Parameters>();
+
         if (ParametersContainer.instance != null)
         {
             if (baseSide == BaseSide.player)
             {
-                GetComponent<Parameters>().CopyParameters(ParametersContainer.instance.PlayerParameters);
+                parameters.CopyParameters(ParametersContainer.instance.PlayerParameters);
             }
             else
             {
-                GetComponent<Parameters>().CopyParameters(ParametersContainer.instance.EnemyParameters);
+                parameters.CopyParameters(ParametersContainer.instance.EnemyParameters);
             }
         }
+
+        panelSideValues.UpdateStage((Stage + 1).ToString());
+        GetComponent<GoldCollector>().UpdateCollectPerSecond(parameters.goldSpeed);
+        GetComponent<LumberCollector>().UpdateCollectPerSecond(parameters.lumberSpeed);
     }
 }
