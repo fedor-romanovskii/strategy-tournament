@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ParametersContainer : MonoBehaviour
 {
@@ -15,5 +13,12 @@ public class ParametersContainer : MonoBehaviour
         instance = this;
     }
 
+    public Parameters PlayerParameters { get; private set; }
+    public Parameters EnemyParameters { get; private set; }
 
+    public void SetParametersContainer(Parameters player, Parameters enemy)
+    {
+        PlayerParameters = player;
+        EnemyParameters = enemy;
+    }
 }

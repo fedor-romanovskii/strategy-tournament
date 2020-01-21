@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,23 +19,23 @@ public class ButtonStart : MonoBehaviour
 
     private void OnButtonStartClick()
     {
-        var parametersContainer = new GameObject();
-        parametersContainer.name = "ParametersContainer";
-        DontDestroyOnLoad(parametersContainer);
-
-        var type = Type.GetType("Parameters");
-
         var player = new GameObject();
         player.name = "PlayerParameters";
-        player.transform.SetParent(parametersContainer.transform);
         var playerParameters = player.AddComponent<Parameters>();
         playerParameters.SetParameters(playerInputPanel.GetOptions());
 
         var enemy = new GameObject();
         enemy.name = "EnemyParameters";
-        enemy.transform.SetParent(parametersContainer.transform);
         var enemyParameters = enemy.AddComponent<Parameters>();
         enemyParameters.SetParameters(enemyInputPanel.GetOptions());
+
+        var parametersContainerGameObject = new GameObject();
+        parametersContainerGameObject.name = "ParametersContainer";
+        player.transform.SetParent(parametersContainerGameObject.transform);
+        enemy.transform.SetParent(parametersContainerGameObject.transform);
+        DontDestroyOnLoad(parametersContainerGameObject);
+        var parametersContainer = parametersContainerGameObject.AddComponent<ParametersContainer>();
+        parametersContainer.SetParametersContainer(playerParameters, enemyParameters);
 
         SceneManager.LoadScene(1);
     }
