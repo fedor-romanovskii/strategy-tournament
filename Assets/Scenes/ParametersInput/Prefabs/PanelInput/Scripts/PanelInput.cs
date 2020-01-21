@@ -16,6 +16,7 @@ public class PanelInput : MonoBehaviour
 
         foreach(PanelOption po in optionPanels)
         {
+            if (string.IsNullOrEmpty(po.optionValue)) po.optionValue = "0";
             options.Add(po.optionType, po.optionValue);
         }
 
