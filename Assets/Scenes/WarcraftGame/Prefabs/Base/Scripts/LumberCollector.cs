@@ -1,25 +1,24 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-
-public class LumberCollector : ResourcesCollector
+﻿public class LumberCollector : ResourcesCollector
 {
-    [SerializeField] private List<int> upgradePrices = new List<int>();
-    [SerializeField] private int lumber;
+    private int lumber;
+    private int upgradePrice;
+    private int stage = 1;
+    private int maxStage = 3;
 
-    private BaseInfo myBase;
+    private PanelSideValues panelSideValues;
 
+    public void UpdateUpgradePrice(int value) => upgradePrice = value;
+    public void SetPanelSideValuesReference(PanelSideValues reference)
+    {
+        panelSideValues = reference;
+        panelSideValues.UpdateLumber(lumber.ToString());
+        panelSideValues.UpdateLPM(collectPerSecond.ToString());
+        panelSideValues.UpdateStage(stage.ToString());
+    }
+    
     private void OnEnable()
     {
-        myBase = GetComponent<BaseInfo>();
         onResourceCollect += CollectLumber;
-    }
-
-    public override void UpdateCollectPerSecond(float value)
-    {
-        base.UpdateCollectPerSecond(value);
-        if (myBase == null) myBase = GetComponent<BaseInfo>();
-        myBase.GetPanelSideValues().UpdateLumber(lumber.ToString());
-        myBase.GetPanelSideValues().UpdateLPM(collectPerSecond.ToString());
     }
 
     private void OnDisable()
@@ -30,20 +29,28 @@ public class LumberCollector : ResourcesCollector
     private void CollectLumber()
     {
         lumber++;
-        myBase.GetPanelSideValues().UpdateLumber(lumber.ToString());
+        panelSideValues.UpdateLumber(lumber.ToString());
         UpgradeCheck();
     }
 
     private void UpgradeCheck()
     {
-        bool MaxStageIsNotReached = myBase.Stage < upgradePrices.Count;
+        bool MaxStageIsNotReached = stage < maxStage;
         if (!MaxStageIsNotReached) return;
 
-        bool enoughLumberForUpgrade = lumber > upgradePrices[myBase.Stage];
+        bool enoughLumberForUpgrade = lumber >= upgradePrice;
         if (enoughLumberForUpgrade)
         {
-            lumber -= upgradePrices[myBase.Stage];
-            myBase.UpgradeStage();
+            lumber -= upgradePrice;
+            panelSideValues.UpdateLumber(lumber.ToString());
+            UpgradeStage();
         }
+    }
+
+    private void UpgradeStage()
+    {
+        stage++;
+        panelSideValues.UpdateStage(stage.ToString());
+        upgradePrice += 5;
     }
 }

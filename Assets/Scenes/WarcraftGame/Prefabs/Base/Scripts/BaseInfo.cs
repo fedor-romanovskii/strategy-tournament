@@ -4,15 +4,9 @@ public class BaseInfo : MonoBehaviour
 {
     [SerializeField] private PanelSideValues panelSideValues = null;
 
-    public PanelSideValues GetPanelSideValues() => panelSideValues;
+    public int HP { get; private set; }
 
-    public int Stage { get; private set; }
-
-    public void UpgradeStage()
-    {
-        Stage++;
-        panelSideValues.UpdateStage((Stage + 1).ToString());
-    }
+    private int maxHP;
 
     public enum BaseSide
     {
@@ -38,8 +32,19 @@ public class BaseInfo : MonoBehaviour
             }
         }
 
-        panelSideValues.UpdateStage((Stage + 1).ToString());
-        GetComponent<GoldCollector>().UpdateCollectPerSecond(parameters.goldSpeed);
-        GetComponent<LumberCollector>().UpdateCollectPerSecond(parameters.lumberSpeed);
+        HP = parameters.baseHP;
+        maxHP = HP;
+
+        GoldCollector goldCollector = GetComponent<GoldCollector>();
+        goldCollector.UpdateCollectPerSecond(parameters.goldSpeed);
+        goldCollector.UpdateUnitPrice(parameters.unitPrice);
+        goldCollector.SetPanelSideValuesReference(panelSideValues);
+
+        LumberCollector lumberCollector = GetComponent<LumberCollector>();
+        lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
+        lumberCollector.UpdateUpgradePrice(parameters.unitPrice);
+        lumberCollector.SetPanelSideValuesReference(panelSideValues);
+
+        GetComponent<BaseAttack>().UpdateDamageValue(parameters.baseDamage);
     }
 }

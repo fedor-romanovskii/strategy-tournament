@@ -1,24 +1,23 @@
-﻿using UnityEngine;
-
-public class GoldCollector : ResourcesCollector
+﻿public class GoldCollector : ResourcesCollector
 {
-    [SerializeField] private int unitPrice = 10;
-    [SerializeField] private int gold;
+    private int gold;
+    private int unitPrice;
 
-    private BaseInfo myBase;
+    private UnitSpawner unitSpawner;
+    private PanelSideValues panelSideValues;
+
+    public void UpdateUnitPrice(int value) => unitPrice = value;
+    public void SetPanelSideValuesReference(PanelSideValues reference)
+    {
+        panelSideValues = reference;
+        panelSideValues.UpdateGold(gold.ToString());
+        panelSideValues.UpdateGPM(collectPerSecond.ToString());
+    }
 
     private void OnEnable()
     {
-        myBase = GetComponent<BaseInfo>();
+        unitSpawner = GetComponent<UnitSpawner>();
         onResourceCollect += CollectGold;
-    }
-
-    public override void UpdateCollectPerSecond(float value)
-    {
-        base.UpdateCollectPerSecond(value);
-        if (myBase == null) myBase = GetComponent<BaseInfo>();
-        myBase.GetPanelSideValues().UpdateGold(gold.ToString());
-        myBase.GetPanelSideValues().UpdateGPM(collectPerSecond.ToString());
     }
 
     private void OnDisable()
@@ -29,7 +28,7 @@ public class GoldCollector : ResourcesCollector
     private void CollectGold()
     {
         gold++;
-        myBase.GetPanelSideValues().UpdateGold(gold.ToString());
+        panelSideValues.UpdateGold(gold.ToString());
         UnitBuingCheck();
     }
 
@@ -43,6 +42,7 @@ public class GoldCollector : ResourcesCollector
     private void BuyUnit()
     {
         gold -= unitPrice;
-        Debug.Log("unit is ready");
+        panelSideValues.UpdateGold(gold.ToString());
+        unitSpawner.SpawnUnit();
     }
 }

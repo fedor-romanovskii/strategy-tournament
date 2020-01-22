@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2762252921564427522}
   - component: {fileID: 2762252921564427523}
   - component: {fileID: 3687879266798414176}
+  - component: {fileID: 791740264}
+  - component: {fileID: 8377997986973897312}
   m_Layer: 0
   m_Name: BaseRed
   m_TagString: Untagged
@@ -129,8 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b40294ba68b84fbf154ef24a93d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradePrices: 0f00000014000000
-  lumber: 0
 --- !u!114 &3687879266798414176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,5 +143,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1fe6d7a84ca9e4ca955ba34e7cf55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPrice: 10
-  gold: 0
+--- !u!114 &791740264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762252921564427526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e42f422a40c4f2e4981af32f89adba39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitPrefab: {fileID: 5889654199206731419, guid: 8aad871e8108efa45992a178762d093e,
+    type: 3}
+  minSpawnRadius: 1
+  maxSpawnRadius: 3
+--- !u!114 &8377997986973897312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762252921564427526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8886f0e05baf9454984d2a340d0f4240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

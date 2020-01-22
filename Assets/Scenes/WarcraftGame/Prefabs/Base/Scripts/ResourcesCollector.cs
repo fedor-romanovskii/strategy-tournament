@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ResourcesCollector : MonoBehaviour
 {
-    protected float collectPerSecond = 2f;
+    protected float collectPerSecond = 1;
     protected Action onResourceCollect;
 
     private void Update()
