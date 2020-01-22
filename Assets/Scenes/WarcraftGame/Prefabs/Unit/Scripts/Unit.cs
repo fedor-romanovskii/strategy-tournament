@@ -1,4 +1,6 @@
-﻿public abstract class Unit
+﻿using UnityEngine;
+
+public abstract class Unit : MonoBehaviour
 {
     public int Hp { get; set; }
     public int Damage { get; set; }
@@ -12,6 +14,18 @@
     public virtual void TakeDamage(int damage)
     {
         Hp -= damage;
+        if (Hp <= 0)
+            Die();
+    }
+
+    protected void Die()
+    {
+        Destroy(gameObject); 
+    }
+
+    protected void JoinGroup()
+    {
+        Debug.Log("Unit join group");
     }
 }
 
