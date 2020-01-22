@@ -23,9 +23,13 @@ public class UnitSpawner : MonoBehaviour
     public void SetPanelSideValuesReference(PanelSideValues reference)
     {
         panelSideValues = reference;
-        panelSideValues.UpdateUnitLimit($"{unitsAlive}/{unitsLimit}");
+        UpdatePanelSideValues();
     }
 
+    public void UpdatePanelSideValues()
+    {
+        panelSideValues.UpdateUnitLimit($"{unitsAlive}/{unitsLimit}");
+    }
 
     private void OnEnable()
     {
@@ -47,7 +51,7 @@ public class UnitSpawner : MonoBehaviour
                 transform);
             unitsAlive++;
             unitsIdle++;
-            panelSideValues.UpdateUnitLimit($"{unitsAlive}/{unitsLimit}");
+            UpdatePanelSideValues();
             onSuccsess(true);
         }
     }

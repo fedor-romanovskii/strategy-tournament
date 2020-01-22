@@ -21,7 +21,7 @@
     private void OnEnable()
     {
         unitSpawner = GetComponent<UnitSpawner>();
-        UpdateUnitSpawner();
+        UpdateUnitSpawnerLimit();
         onResourceCollect += CollectLumber;
     }
 
@@ -56,10 +56,11 @@
         stage++;
         panelSideValues.UpdateStage(stage.ToString());
         upgradePrice += 5;
-        UpdateUnitSpawner();
+        UpdateUnitSpawnerLimit();
+        unitSpawner.UpdatePanelSideValues();
     }
 
-    private void UpdateUnitSpawner()
+    private void UpdateUnitSpawnerLimit()
     {
         unitSpawner.UpdateUnitsLimit(stage * 5);
     }
