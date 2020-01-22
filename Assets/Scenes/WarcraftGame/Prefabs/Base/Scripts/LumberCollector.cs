@@ -6,8 +6,10 @@
     private int maxStage = 3;
 
     private PanelSideValues panelSideValues;
+    private UnitSpawner unitSpawner;
 
     public void UpdateUpgradePrice(int value) => upgradePrice = value;
+
     public void SetPanelSideValuesReference(PanelSideValues reference)
     {
         panelSideValues = reference;
@@ -18,6 +20,8 @@
     
     private void OnEnable()
     {
+        unitSpawner = GetComponent<UnitSpawner>();
+        UpdateUnitSpawner();
         onResourceCollect += CollectLumber;
     }
 
@@ -52,5 +56,11 @@
         stage++;
         panelSideValues.UpdateStage(stage.ToString());
         upgradePrice += 5;
+        UpdateUnitSpawner();
+    }
+
+    private void UpdateUnitSpawner()
+    {
+        unitSpawner.UpdateUnitsLimit(stage * 5);
     }
 }

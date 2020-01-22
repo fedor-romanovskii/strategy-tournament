@@ -7,6 +7,7 @@
     private PanelSideValues panelSideValues;
 
     public void UpdateUnitPrice(int value) => unitPrice = value;
+
     public void SetPanelSideValuesReference(PanelSideValues reference)
     {
         panelSideValues = reference;
@@ -41,8 +42,12 @@
 
     private void BuyUnit()
     {
-        gold -= unitPrice;
         panelSideValues.UpdateGold(gold.ToString());
-        unitSpawner.SpawnUnit();
+        unitSpawner.SpawnUnit(OnUnitBuy);
+    }
+
+    private void OnUnitBuy(bool success)
+    {
+        if (success) gold -= unitPrice;
     }
 }

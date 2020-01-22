@@ -23,6 +23,13 @@ public class BaseInfo : MonoBehaviour
         SetupGoldCollector(parameters);
         SetupLumberCollector(parameters);
         SetupBaseAttack(parameters);
+        SetupUnitSpawner(parameters);
+    }
+
+    private void SetupUnitSpawner(Parameters parameters)
+    {
+        UnitSpawner unitSpawner = GetComponent<UnitSpawner>();
+        unitSpawner.SetPanelSideValuesReference(panelSideValues);
     }
 
     private void Setup(Parameters parameters)
@@ -40,7 +47,7 @@ public class BaseInfo : MonoBehaviour
     {
         LumberCollector lumberCollector = GetComponent<LumberCollector>();
         lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
-        lumberCollector.UpdateUpgradePrice(parameters.unitPrice);
+        lumberCollector.UpdateUpgradePrice(parameters.upgradePrice);
         lumberCollector.SetPanelSideValuesReference(panelSideValues);
     }
 
