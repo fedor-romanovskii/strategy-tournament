@@ -18,6 +18,42 @@ public class BaseInfo : MonoBehaviour
 
     private void OnEnable()
     {
+        Parameters parameters = GetParametersFromData();
+        Setup(parameters);
+        SetupGoldCollector(parameters);
+        SetupLumberCollector(parameters);
+        SetupBaseAttack(parameters);
+    }
+
+    private void Setup(Parameters parameters)
+    {
+        HP = parameters.baseHP;
+        maxHP = HP;
+    }
+
+    private void SetupBaseAttack(Parameters parameters)
+    {
+        GetComponent<BaseAttack>().UpdateDamageValue(parameters.baseDamage);
+    }
+
+    private void SetupLumberCollector(Parameters parameters)
+    {
+        LumberCollector lumberCollector = GetComponent<LumberCollector>();
+        lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
+        lumberCollector.UpdateUpgradePrice(parameters.unitPrice);
+        lumberCollector.SetPanelSideValuesReference(panelSideValues);
+    }
+
+    private void SetupGoldCollector(Parameters parameters)
+    {
+        GoldCollector goldCollector = GetComponent<GoldCollector>();
+        goldCollector.UpdateCollectPerSecond(parameters.goldSpeed);
+        goldCollector.UpdateUnitPrice(parameters.unitPrice);
+        goldCollector.SetPanelSideValuesReference(panelSideValues);
+    }
+
+    private Parameters GetParametersFromData()
+    {
         Parameters parameters = GetComponent<Parameters>();
 
         if (ParametersContainer.instance != null)
@@ -32,19 +68,6 @@ public class BaseInfo : MonoBehaviour
             }
         }
 
-        HP = parameters.baseHP;
-        maxHP = HP;
-
-        GoldCollector goldCollector = GetComponent<GoldCollector>();
-        goldCollector.UpdateCollectPerSecond(parameters.goldSpeed);
-        goldCollector.UpdateUnitPrice(parameters.unitPrice);
-        goldCollector.SetPanelSideValuesReference(panelSideValues);
-
-        LumberCollector lumberCollector = GetComponent<LumberCollector>();
-        lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
-        lumberCollector.UpdateUpgradePrice(parameters.unitPrice);
-        lumberCollector.SetPanelSideValuesReference(panelSideValues);
-
-        GetComponent<BaseAttack>().UpdateDamageValue(parameters.baseDamage);
+        return parameters;
     }
 }
