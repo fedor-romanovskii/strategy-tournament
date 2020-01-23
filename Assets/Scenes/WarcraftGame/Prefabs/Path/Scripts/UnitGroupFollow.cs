@@ -11,19 +11,18 @@ public class UnitGroupFollow : MonoBehaviour
 
     private bool coroutineAllowed;
 
-    public enum UnitGroupSide
-    {
-        player,
-        enemy,
-    }
+    private BaseInfo.BaseSide unitGroupSide = BaseInfo.BaseSide.player;
 
-    [SerializeField] private UnitGroupSide unitGroupSide = UnitGroupSide.player;
+    public void SetUnitGroupSide (BaseInfo.BaseSide _unitGroupSide)
+    {
+        unitGroupSide = _unitGroupSide;
+    }
 
     private void Start()
     {
         pathSections = PathChooser.GetPath().pathSections;
-        if (unitGroupSide == UnitGroupSide.player) sectionToGo = 0;
-        if (unitGroupSide == UnitGroupSide.enemy) sectionToGo = pathSections.Length - 1;
+        if (unitGroupSide == BaseInfo.BaseSide.player) sectionToGo = 0;
+        if (unitGroupSide == BaseInfo.BaseSide.enemy) sectionToGo = pathSections.Length - 1;
         coroutineAllowed = true;
     }
 
@@ -31,8 +30,8 @@ public class UnitGroupFollow : MonoBehaviour
     {
         if (coroutineAllowed)
         {
-            if (unitGroupSide == UnitGroupSide.player) StartCoroutine(GoByTheSection(sectionToGo));
-            if (unitGroupSide == UnitGroupSide.enemy) StartCoroutine(GoByTheSectionBackwards(sectionToGo));
+            if (unitGroupSide == BaseInfo.BaseSide.player) StartCoroutine(GoByTheSection(sectionToGo));
+            if (unitGroupSide == BaseInfo.BaseSide.enemy) StartCoroutine(GoByTheSectionBackwards(sectionToGo));
         }
     }
 

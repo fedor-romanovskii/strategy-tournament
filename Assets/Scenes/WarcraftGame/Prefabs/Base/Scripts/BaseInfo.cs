@@ -18,17 +18,24 @@ public class BaseInfo : MonoBehaviour
 
     private void OnEnable()
     {
-        Parameters parameters = GetParametersFromData();
+        var parameters = GetParametersFromData();
         Setup(parameters);
         SetupGoldCollector(parameters);
         SetupLumberCollector(parameters);
         SetupBaseAttack(parameters);
         SetupUnitSpawner(parameters);
+        SetupUnitsGroupBuilder();
+    }
+
+    private void SetupUnitsGroupBuilder()
+    {
+        var unitsGroupBuilder = GetComponent<UnitsGroupBuilder>();
+        unitsGroupBuilder.SetBaseSide(baseSide);
     }
 
     private void SetupUnitSpawner(Parameters parameters)
     {
-        UnitSpawner unitSpawner = GetComponent<UnitSpawner>();
+        var unitSpawner = GetComponent<UnitSpawner>();
         unitSpawner.SetPanelSideValuesReference(panelSideValues);
     }
 
@@ -45,7 +52,7 @@ public class BaseInfo : MonoBehaviour
 
     private void SetupLumberCollector(Parameters parameters)
     {
-        LumberCollector lumberCollector = GetComponent<LumberCollector>();
+        var lumberCollector = GetComponent<LumberCollector>();
         lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
         lumberCollector.UpdateUpgradePrice(parameters.upgradePrice);
         lumberCollector.SetPanelSideValuesReference(panelSideValues);
@@ -53,7 +60,7 @@ public class BaseInfo : MonoBehaviour
 
     private void SetupGoldCollector(Parameters parameters)
     {
-        GoldCollector goldCollector = GetComponent<GoldCollector>();
+        var goldCollector = GetComponent<GoldCollector>();
         goldCollector.UpdateCollectPerSecond(parameters.goldSpeed);
         goldCollector.UpdateUnitPrice(parameters.unitPrice);
         goldCollector.SetPanelSideValuesReference(panelSideValues);

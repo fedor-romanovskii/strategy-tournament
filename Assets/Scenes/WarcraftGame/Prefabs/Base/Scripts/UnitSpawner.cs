@@ -14,6 +14,7 @@ public class UnitSpawner : MonoBehaviour
     private float directionCoefficient;
 
     private PanelSideValues panelSideValues;
+    private UnitsGroupBuilder unitsGroupBuilder;
 
     public void UpdateUnitsLimit(int value)
     {
@@ -33,6 +34,7 @@ public class UnitSpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        unitsGroupBuilder = GetComponent<UnitsGroupBuilder>();
         if (transform.position.x >= 0f) directionCoefficient = -1f;
         else directionCoefficient = 1f;
     }
@@ -52,6 +54,7 @@ public class UnitSpawner : MonoBehaviour
             unitsAlive++;
             unitsIdle++;
             UpdatePanelSideValues();
+            unitsGroupBuilder.AddUnitToList(newUnit);
             onSuccsess(true);
         }
     }
