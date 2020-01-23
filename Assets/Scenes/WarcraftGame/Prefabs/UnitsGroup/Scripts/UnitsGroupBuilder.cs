@@ -32,10 +32,15 @@ public class UnitsGroupBuilder : MonoBehaviour
         for (int i = 0; i < numberOfUnitsInGroup; i++)
         {
             units[i].transform.parent = newUnitsGroup.transform;
-            units[i].transform.localPosition = new Vector2(Random.Range(0f, 1f), Random.Range(0f, 1f));
+            units[i].transform.localPosition = new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
         }
-        units.RemoveRange(0, numberOfUnitsInGroup - 1);
-        var unitGroupFollow = newUnitsGroup.AddComponent<UnitGroupFollow>();
-        unitGroupFollow.SetUnitGroupSide(baseSide);
+        units.RemoveRange(0, numberOfUnitsInGroup);
+        var unitsGroupFollow = newUnitsGroup.AddComponent<UnitGroupFollow>();
+        unitsGroupFollow.SetUnitGroupSide(baseSide);
+        var unitsGroupRb = newUnitsGroup.AddComponent<Rigidbody2D>();
+        unitsGroupRb.isKinematic = true;
+        var unitsGroupCollider = newUnitsGroup.AddComponent<CircleCollider2D>();
+        unitsGroupCollider.isTrigger = true;
+        unitsGroupCollider.radius = 2f;
     }
 }

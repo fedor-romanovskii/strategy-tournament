@@ -2689,6 +2689,11 @@ PrefabInstance:
       propertyPath: panelSideValues
       value: 
       objectReference: {fileID: 1711853942}
+    - target: {fileID: 2624283531334370286, guid: 89bfe35c8f4ff9d40878fe3200b471eb,
+        type: 3}
+      propertyPath: goldSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89bfe35c8f4ff9d40878fe3200b471eb, type: 3}
 --- !u!1001 &2762252922546405189
@@ -2763,5 +2768,10 @@ PrefabInstance:
       propertyPath: panelSideValues
       value: 
       objectReference: {fileID: 1463642974}
+    - target: {fileID: 2762252921564427522, guid: 2486106311508614f9608eaee30dbba1,
+        type: 3}
+      propertyPath: goldSpeed
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2486106311508614f9608eaee30dbba1, type: 3}
