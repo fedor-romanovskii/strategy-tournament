@@ -14,7 +14,7 @@ public class BaseInfo : MonoBehaviour
         enemy
     }
 
-    public BaseSide baseSide;
+    [SerializeField] private BaseSide baseSide = BaseSide.player;
 
     private void OnEnable()
     {
