@@ -1,4 +1,4 @@
-﻿public class GoldCollector : ResourcesCollector
+﻿public class GoldCollector : ResourcesCollector, IParameterable, ISidePanelChangeable
 {
     private int gold;
     private int unitPrice;
@@ -6,7 +6,18 @@
     private UnitSpawner unitSpawner;
     private PanelSideValues panelSideValues;
 
-    public void UpdateUnitPrice(int value) => unitPrice = value;
+    public void SetupWithParameters(Parameters parameters)
+    {
+        UpdateCollectPerSecond(parameters.goldSpeed);
+        UpdateUnitPrice(parameters.unitPrice);
+    }
+
+    public void SetupSidePanel(PanelSideValues reference)
+    {
+        panelSideValues = reference;
+        panelSideValues.UpdateGold(gold.ToString());
+        panelSideValues.UpdateGPM(collectPerSecond.ToString());
+    }
 
     public void SetPanelSideValuesReference(PanelSideValues reference)
     {
@@ -14,6 +25,8 @@
         panelSideValues.UpdateGold(gold.ToString());
         panelSideValues.UpdateGPM(collectPerSecond.ToString());
     }
+
+    private void UpdateUnitPrice(int value) => unitPrice = value;
 
     private void OnEnable()
     {

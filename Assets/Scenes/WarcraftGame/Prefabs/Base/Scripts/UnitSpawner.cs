@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class UnitSpawner : MonoBehaviour
+public class UnitSpawner : MonoBehaviour, ISidePanelChangeable
 {
     [SerializeField] private GameObject unitPrefab = null;
     [SerializeField] private float minSpawnRadius = 1f;
@@ -16,15 +16,15 @@ public class UnitSpawner : MonoBehaviour
     private PanelSideValues panelSideValues;
     private UnitsGroupBuilder unitsGroupBuilder;
 
-    public void UpdateUnitsLimit(int value)
-    {
-        unitsLimit = value;
-    }
-
-    public void SetPanelSideValuesReference(PanelSideValues reference)
+    public void SetupSidePanel(PanelSideValues reference)
     {
         panelSideValues = reference;
         UpdatePanelSideValues();
+    }
+
+    public void UpdateUnitsLimit(int value)
+    {
+        unitsLimit = value;
     }
 
     public void UpdatePanelSideValues()

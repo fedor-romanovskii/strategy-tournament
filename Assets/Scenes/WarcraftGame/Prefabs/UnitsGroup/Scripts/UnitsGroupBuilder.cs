@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitsGroupBuilder : MonoBehaviour
+public class UnitsGroupBuilder : MonoBehaviour, IPlayerSideDepedable
 {
     private List<GameObject> units = new List<GameObject>();
     private int numberOfUnitsInGroup = 5;
     private BaseInfo.BaseSide baseSide;
 
-    public void SetBaseSide(BaseInfo.BaseSide _baseSide) => baseSide = _baseSide;
+    public void SetupWithPlayerSide(BaseInfo.BaseSide reference)
+    {
+        baseSide = reference;
+    }
 
     public void AddUnitToList(GameObject unit)
     {

@@ -20,50 +20,24 @@ public class BaseInfo : MonoBehaviour
     {
         var parameters = GetParametersFromData();
         Setup(parameters);
-        SetupGoldCollector(parameters);
-        SetupLumberCollector(parameters);
-        SetupBaseAttack(parameters);
-        SetupUnitSpawner(parameters);
-        SetupUnitsGroupBuilder();
-    }
-
-    private void SetupUnitsGroupBuilder()
-    {
-        var unitsGroupBuilder = GetComponent<UnitsGroupBuilder>();
-        unitsGroupBuilder.SetBaseSide(baseSide);
-    }
-
-    private void SetupUnitSpawner(Parameters parameters)
-    {
-        var unitSpawner = GetComponent<UnitSpawner>();
-        unitSpawner.SetPanelSideValuesReference(panelSideValues);
+        foreach(IParameterable component in GetComponents<IParameterable>())
+        {
+            component.SetupWithParameters(parameters);
+        }
+        foreach(ISidePanelChangeable component in GetComponents<ISidePanelChangeable>())
+        {
+            component.SetupSidePanel(panelSideValues);
+        }
+        foreach (IPlayerSideDepedable component in GetComponents<IPlayerSideDepedable>())
+        {
+            component.SetupWithPlayerSide(baseSide);
+        }
     }
 
     private void Setup(Parameters parameters)
     {
         HP = parameters.baseHP;
         maxHP = HP;
-    }
-
-    private void SetupBaseAttack(Parameters parameters)
-    {
-        GetComponent<BaseAttack>().UpdateDamageValue(parameters.baseDamage);
-    }
-
-    private void SetupLumberCollector(Parameters parameters)
-    {
-        var lumberCollector = GetComponent<LumberCollector>();
-        lumberCollector.UpdateCollectPerSecond(parameters.lumberSpeed);
-        lumberCollector.UpdateUpgradePrice(parameters.upgradePrice);
-        lumberCollector.SetPanelSideValuesReference(panelSideValues);
-    }
-
-    private void SetupGoldCollector(Parameters parameters)
-    {
-        var goldCollector = GetComponent<GoldCollector>();
-        goldCollector.UpdateCollectPerSecond(parameters.goldSpeed);
-        goldCollector.UpdateUnitPrice(parameters.unitPrice);
-        goldCollector.SetPanelSideValuesReference(panelSideValues);
     }
 
     private Parameters GetParametersFromData()

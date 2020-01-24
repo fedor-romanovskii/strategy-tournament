@@ -1,4 +1,4 @@
-﻿public class LumberCollector : ResourcesCollector
+﻿public class LumberCollector : ResourcesCollector, ISidePanelChangeable, IParameterable
 {
     private int lumber;
     private int upgradePrice;
@@ -8,16 +8,22 @@
     private PanelSideValues panelSideValues;
     private UnitSpawner unitSpawner;
 
-    public void UpdateUpgradePrice(int value) => upgradePrice = value;
+    public void SetupWithParameters(Parameters parameters)
+    {
+        UpdateCollectPerSecond(parameters.lumberSpeed);
+        UpdateUpgradePrice(parameters.upgradePrice);
+    }
 
-    public void SetPanelSideValuesReference(PanelSideValues reference)
+    public void SetupSidePanel(PanelSideValues reference)
     {
         panelSideValues = reference;
         panelSideValues.UpdateLumber(lumber.ToString());
         panelSideValues.UpdateLPM(collectPerSecond.ToString());
         panelSideValues.UpdateStage(stage.ToString());
     }
-    
+
+    private void UpdateUpgradePrice(int value) => upgradePrice = value;
+
     private void OnEnable()
     {
         unitSpawner = GetComponent<UnitSpawner>();
