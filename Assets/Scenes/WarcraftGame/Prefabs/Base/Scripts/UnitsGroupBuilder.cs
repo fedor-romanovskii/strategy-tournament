@@ -32,18 +32,25 @@ public class UnitsGroupBuilder : MonoBehaviour, IPlayerSideDepedable
         var newUnitsGroup = new GameObject();
         newUnitsGroup.name = "UnitsGroup";
         newUnitsGroup.transform.parent = transform;
+        newUnitsGroup.transform.localPosition = Vector2.zero;
         for (int i = 0; i < numberOfUnitsInGroup; i++)
         {
             units[i].transform.parent = newUnitsGroup.transform;
             units[i].transform.localPosition = new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
         }
         units.RemoveRange(0, numberOfUnitsInGroup);
+
         var unitsGroupFollow = newUnitsGroup.AddComponent<UnitGroupFollow>();
         unitsGroupFollow.SetUnitGroupSide(baseSide);
+
         var unitsGroupRb = newUnitsGroup.AddComponent<Rigidbody2D>();
         unitsGroupRb.isKinematic = true;
+
         var unitsGroupCollider = newUnitsGroup.AddComponent<CircleCollider2D>();
         unitsGroupCollider.isTrigger = true;
         unitsGroupCollider.radius = 2f;
+
+        var unitsGroupFightDetector = newUnitsGroup.AddComponent<UnitsGroupFightDetector>();
+        unitsGroupFightDetector.SetSide(baseSide);
     }
 }
