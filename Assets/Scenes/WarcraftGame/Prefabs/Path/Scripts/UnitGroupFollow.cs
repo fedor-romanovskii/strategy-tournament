@@ -13,14 +13,11 @@ public class UnitGroupFollow : MonoBehaviour
 
     private BaseInfo.BaseSide unitGroupSide = BaseInfo.BaseSide.player;
 
-    public void SetUnitGroupSide (BaseInfo.BaseSide _unitGroupSide)
-    {
-        unitGroupSide = _unitGroupSide;
-    }
+    public void SetUnitGroupSide(BaseInfo.BaseSide _unitGroupSide) => unitGroupSide = _unitGroupSide;
 
     private void Start()
     {
-        pathSections = PathChooser.GetPath().pathSections;
+        pathSections = PathChooser.GetPath(unitGroupSide).pathSections;
         if (unitGroupSide == BaseInfo.BaseSide.player) sectionToGo = 0;
         if (unitGroupSide == BaseInfo.BaseSide.enemy) sectionToGo = pathSections.Length - 1;
         coroutineAllowed = true;

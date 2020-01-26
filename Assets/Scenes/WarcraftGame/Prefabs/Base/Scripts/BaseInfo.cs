@@ -11,7 +11,8 @@ public class BaseInfo : MonoBehaviour
     public enum BaseSide
     {
         player,
-        enemy
+        enemy,
+        neutral
     }
 
     [SerializeField] private BaseSide baseSide = BaseSide.player;

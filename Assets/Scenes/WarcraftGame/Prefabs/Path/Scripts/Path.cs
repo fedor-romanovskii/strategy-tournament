@@ -4,6 +4,8 @@ public class Path : MonoBehaviour
 {
     public PathSection[] pathSections { get; private set; }
 
+    public BaseInfo.BaseSide pathSide = BaseInfo.BaseSide.neutral;
+
     private void Awake()
     {
         pathSections = new PathSection[transform.childCount];
