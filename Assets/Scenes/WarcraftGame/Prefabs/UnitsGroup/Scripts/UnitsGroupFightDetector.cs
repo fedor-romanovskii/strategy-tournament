@@ -19,24 +19,27 @@ public class UnitsGroupFightDetector : MonoBehaviour
         if (enemy != null)
         {
             if (enemy.GetSide() == unitGroupSide) return;
-            PutsUnitInPositions();
-            Debug.Log(transform.position);
+            PutsUnitInPositions(enemy.transform);
+            GetComponent<UnitGroupFollow>().isFighting = true;
+            IsFighting = true;
+            GetComponent<UnitGroup>().StartAttack(enemy.GetComponent<UnitGroup>());
         }
     }
 
-    private void PutsUnitInPositions()
+    private void PutsUnitInPositions(Transform enemyTransform)
     {
         var distanceBetweenUnits = .5f;
         var row = 0;
         var column = 0;
-        var offset = new Vector2(-2 * distanceBetweenUnits, -distanceBetweenUnits);
+        var offset = new Vector2(2 * distanceBetweenUnits, -2 * distanceBetweenUnits);
+        transform.right = enemyTransform.position - transform.position;
 
         foreach (Transform unit in GetComponentsInChildren<Transform>())
         {
             if (unit == transform) continue;
-            unit.transform.localPosition = new Vector2(row, -column) * distanceBetweenUnits + offset;
+            unit.transform.localPosition = new Vector2(-column, row) * distanceBetweenUnits + offset;
             row++;
-            if (row == 2)
+            if (row == 5)
             {
                 column++;
                 row = 0;

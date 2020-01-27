@@ -30,7 +30,6 @@ public class HealthBar : MonoBehaviour
     public void SetDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log(currentHealth);
         float currentHealthCounter = currentHealth;
         foreach (OneUnitHealthBar oneUnitHealthBar in GetComponentsInChildren<OneUnitHealthBar>())
         { 

@@ -9,6 +9,7 @@ public class UnitGroupFollow : MonoBehaviour
 
     private int sectionToGo = 0;
 
+    public bool isFighting;
     private bool coroutineAllowed;
 
     private BaseInfo.BaseSide unitGroupSide = BaseInfo.BaseSide.player;
@@ -42,21 +43,26 @@ public class UnitGroupFollow : MonoBehaviour
 
         while (tParam < 1)
         {
-            tParam += Time.deltaTime * speedModifier;
-            Vector2 unitPosition = Vector2.zero;
-            int i = 0;
-            foreach (Vector2 position in sectionPositions)
+            if (!isFighting)
             {
-                int k = sectionPositions.Length - 1;
-                int j = k - i;
+                tParam += Time.deltaTime * speedModifier;
+                Vector2 unitPosition = Vector2.zero;
+                int i = 0;
+                foreach (Vector2 position in sectionPositions)
+                {
+                    int k = sectionPositions.Length - 1;
+                    int j = k - i;
 
-                float binomialСoefficient = PathMath.BinomialСoefficient(k, i);
+                    float binomialСoefficient = PathMath.BinomialСoefficient(k, i);
 
-                unitPosition += binomialСoefficient * Mathf.Pow(1 - tParam, j) * Mathf.Pow(tParam, i) * position;
-                i++;
+                    unitPosition += binomialСoefficient * Mathf.Pow(1 - tParam, j)
+                        * Mathf.Pow(tParam, i) * position;
+                    i++;
+                }
+
+                transform.position = unitPosition;
+
             }
-
-            transform.position = unitPosition;
             yield return new WaitForEndOfFrame();
         }
 
@@ -80,21 +86,24 @@ public class UnitGroupFollow : MonoBehaviour
 
         while (tParam > 0)
         {
-            tParam -= Time.deltaTime * speedModifier;
-            Vector2 unitPosition = Vector2.zero;
-            int i = 0;
-            foreach (Vector2 position in sectionPositions)
+            if (!isFighting)
             {
-                int k = sectionPositions.Length - 1;
-                int j = k - i;
+                tParam -= Time.deltaTime * speedModifier;
+                Vector2 unitPosition = Vector2.zero;
+                int i = 0;
+                foreach (Vector2 position in sectionPositions)
+                {
+                    int k = sectionPositions.Length - 1;
+                    int j = k - i;
 
-                float binomialСoefficient = PathMath.BinomialСoefficient(k, i);
+                    float binomialСoefficient = PathMath.BinomialСoefficient(k, i);
 
-                unitPosition += binomialСoefficient * Mathf.Pow(1 - tParam, j) * Mathf.Pow(tParam, i) * position;
-                i++;
+                    unitPosition += binomialСoefficient * Mathf.Pow(1 - tParam, j) * Mathf.Pow(tParam, i) * position;
+                    i++;
+                }
+
+                transform.position = unitPosition;
             }
-
-            transform.position = unitPosition;
             yield return new WaitForEndOfFrame();
         }
 

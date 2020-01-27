@@ -2,7 +2,7 @@
 {
     public Fighter (int hp, int damage)
     {
-        Hp = hp;
-        Damage = damage;
+        base.hp = hp;
+        base.damage = damage;
     }
 }

@@ -2,19 +2,19 @@
 
 public abstract class Unit : MonoBehaviour
 {
-    public int Hp { get; set; }
-    public int Damage { get; set; }
+    public int hp;
+    public int damage;
 
     // In next virtual methods can be some overriding. e.g. fighter cant attack flying type of enemies.
     public virtual void Attack(Unit target)
     {
-        target.TakeDamage(Damage);
+        target.TakeDamage(damage);
     }
 
     public virtual void TakeDamage(int damage)
     {
-        Hp -= damage;
-        if (Hp <= 0)
+        hp -= damage;
+        if (hp <= 0)
             Die();
     }
 

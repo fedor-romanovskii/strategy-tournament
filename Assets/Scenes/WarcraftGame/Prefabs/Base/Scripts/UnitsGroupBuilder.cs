@@ -50,6 +50,8 @@ public class UnitsGroupBuilder : MonoBehaviour, IPlayerSideDepedable
         unitsGroupCollider.isTrigger = true;
         unitsGroupCollider.radius = 2f;
 
+        var unitGroup = newUnitsGroup.AddComponent<UnitGroup>();
+    
         var unitsGroupFightDetector = newUnitsGroup.AddComponent<UnitsGroupFightDetector>();
         unitsGroupFightDetector.SetSide(baseSide);
     }
