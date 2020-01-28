@@ -5,24 +5,21 @@ using System.Collections;
 public class UnitGroup : MonoBehaviour
 {
     [SerializeField] private GameObject healthBarPrefab;
+    private GameObject healthBarGameObject;
     private HealthBar healthBar;
-    private Unit[] units;
+    public Unit[] units;
     private int unitsNumber;
     public int unitsHP;
+    private int oneUnitHp = 5;
     private int unitsDamage;
 
     private void OnEnable()
     {
         healthBarPrefab = Resources.Load("CanvasWorldspaceHealthBar") as GameObject;
-
         units = GetComponentsInChildren<Unit>();
         unitsNumber = units.Length;
-        foreach (Unit unit in units)
-        {
-            unitsHP += unit.hp;
-            unitsDamage += unit.damage;
-
-        }
+        print("units number is " + unitsNumber);
+        
     }
 
     public void SetupHealthBar()
@@ -32,7 +29,7 @@ public class UnitGroup : MonoBehaviour
             offset = new Vector3(0f, -2f);
         else offset = new Vector3(0f, 2f);
         
-        var healthBarGameObject = Instantiate(healthBarPrefab, transform.position + offset, Quaternion.identity, transform);
+        healthBarGameObject = Instantiate(healthBarPrefab, transform.position + offset, Quaternion.identity, transform);
         healthBar = healthBarGameObject.GetComponent<HealthBar>();
         healthBar.SetOneUnitHealth(units[0].hp);
         healthBar.SetHealth(unitsHP);
@@ -42,22 +39,68 @@ public class UnitGroup : MonoBehaviour
     {
         unitsHP -= damage;
         healthBar.SetDamage(damage);
+        CheckForUnitKill();
+    }
+
+    private void CheckForUnitKill()
+    {
+        if (unitsHP <= (unitsNumber - 1) * oneUnitHp)
+        {
+            print(unitsNumber - 1);
+            Destroy(units[unitsNumber - 1].gameObject);
+            unitsNumber--;
+            GetComponentInParent<UnitSpawner>().DestroyUnit();
+            if (unitsNumber <= 0)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            CheckForUnitKill();
+        }
     }
 
     public void StartAttack(UnitGroup target)
     {
+        SetupUnitGroupHpAndDamage();
         SetupHealthBar();
         StartCoroutine(Attack(target));
     }
 
+    public void SetupUnitGroupHpAndDamage()
+    {
+        units = GetComponentsInChildren<Unit>();
+        unitsHP = 0;
+        unitsDamage = 0;
+        foreach (Unit unit in units)
+        {
+            unitsHP += unit.hp;
+            unitsDamage += unit.damage;
+        }
+    }
+
     private IEnumerator Attack(UnitGroup target)
     {
-        yield return null;
+        yield return new WaitForSeconds(Random.Range(0.1f,0.5f));
 
-        while (target.unitsHP > 0)
+        while (target != null)
         {
-            target.SetDamage(unitsDamage);
             yield return new WaitForSeconds(1f);
+            target.SetDamage(unitsDamage);
+            yield return null;
         }
+        Destroy(healthBarGameObject);
+        GetComponent<UnitsGroupFightDetector>().SetAsFighting(false);
+        foreach (Unit unit in units)
+        {
+            if (unit != null)
+                unit.transform.localPosition = new Vector2(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f));
+        }
+    }
+
+    //DEBUG
+    public void MinusHp(int value)
+    {
+        unitsHP -= value;
+        CheckForUnitKill();
     }
 }

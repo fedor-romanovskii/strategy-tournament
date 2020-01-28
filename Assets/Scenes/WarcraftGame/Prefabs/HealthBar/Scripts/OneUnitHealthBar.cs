@@ -12,7 +12,7 @@ public class OneUnitHealthBar : MonoBehaviour
     public void RefreshImageFill(float _health)
     {
         currentHealth = _health;
-        var fillAmount = currentHealth / maxHealth;
+        float fillAmount = (float)currentHealth / (float)maxHealth;
         health.fillAmount = fillAmount;
     }
 }

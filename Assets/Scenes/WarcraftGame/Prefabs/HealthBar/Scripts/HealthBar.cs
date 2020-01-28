@@ -23,7 +23,9 @@ public class HealthBar : MonoBehaviour
         unitHealthBarNumber = health / oneUnitHealth;
         for (int i = 0; i < unitHealthBarNumber - 1; i++)
         {
-            Instantiate(unitHealthPrefab, transform);
+            var oneUnitHealthBarGameObject = Instantiate(unitHealthPrefab, transform);
+            var oneUnitHealthBar = oneUnitHealthBarGameObject.GetComponent<OneUnitHealthBar>();
+            oneUnitHealthBar.maxHealth = oneUnitHealth;
         }
     }
 

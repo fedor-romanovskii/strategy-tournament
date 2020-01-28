@@ -1,5 +1,9 @@
-﻿public class LumberCollector : ResourcesCollector, ISidePanelChangeable, IParameterable
+﻿using System;
+
+public class LumberCollector : ResourcesCollector, ISidePanelChangeable, IParameterable
 {
+    public Action<int> onStageUp;
+
     private int lumber;
     private int upgradePrice;
     private int stage = 1;
@@ -64,6 +68,7 @@
         upgradePrice += 5;
         UpdateUnitSpawnerLimit();
         unitSpawner.UpdatePanelSideValues();
+        onStageUp(stage);
     }
 
     private void UpdateUnitSpawnerLimit()

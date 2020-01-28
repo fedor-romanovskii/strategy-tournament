@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 3687879266798414176}
   - component: {fileID: 791740264}
   - component: {fileID: 8377997986973897312}
+  - component: {fileID: 1531188963}
+  - component: {fileID: 1531188956}
   m_Layer: 0
   m_Name: BaseRed
   m_TagString: Untagged
@@ -113,7 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHP: 100
   baseDamage: 1
-  goldSpeed: 5
+  goldSpeed: 15
   lumberSpeed: 1
   unitPrice: 10
   upgradePrice: 15
@@ -171,3 +173,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8886f0e05baf9454984d2a340d0f4240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1531188963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762252921564427526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61e5b88c06925944f95640374ae95020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfUnitsInGroup: 5
+--- !u!58 &1531188956
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2762252921564427526}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3

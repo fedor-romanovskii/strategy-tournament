@@ -58,4 +58,9 @@ public class UnitSpawner : MonoBehaviour, ISidePanelChangeable
             onSuccsess(true);
         }
     }
+
+    public void DestroyUnit()
+    {
+        unitsAlive--;
+    }
 }
